@@ -8,14 +8,12 @@ app = FastAPI()
 def get_db():
     return sqlite3.connect("study.db")
 
-# Pydantic model for incoming JSON
 class Session(BaseModel):
     language: str
     skill: str
     study_date: str           # format YYYY-MM-DD
     duration_minutes: int
 
-# POST endpoint
 @app.post("/add_session")
 def add_session(session: Session):
     conn = get_db()
@@ -48,7 +46,6 @@ def get_languages():
     cursor.execute("SELECT DISTINCT language FROM sessions")
     rows = cursor.fetchall()
     conn.close()
-    # Flatten tuples
     return [row[0] for row in rows]
 
 
@@ -59,4 +56,5 @@ def delete_all_sessions():
     cursor.execute("DELETE FROM sessions")  # removes all rows
     conn.commit()
     conn.close()
+
     return {"message": "All sessions deleted"}
