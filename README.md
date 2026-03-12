@@ -13,14 +13,12 @@ As for the code:
 
 -backend
 
+#add later
+ 
 -frontend
 
--database
-For now it contains one table with columns: 
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    language TEXT NOT NULL, 
-    skill TEXT NOT NULL,
-    study_date DATE,
-    duration_minutes INTEGER
+#add later
 
+-database
+Creates the (for now) tables "sessions" and "books".
     
